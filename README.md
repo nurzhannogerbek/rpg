@@ -27,6 +27,20 @@ rpg
 |-- utils
 |   |-- utils.go
 |   `-- utils_test.go
+|-- ui
+|   |-- public
+|   |   `-- index.html
+|   |-- src
+|   |   |-- components
+|   |   |   |-- OrderForm.vue
+|   |   |   `-- ResultDisplay.vue
+|   |   |-- App.vue
+|   |   `-- main.js
+|   |-- babel.config.js
+|   |-- jsconfig.json
+|   |-- package.json
+|   |-- package-lock.json
+|   `-- vue.config.js
 |-- .gitignore
 |-- go.mod
 |-- go.sum
@@ -215,25 +229,74 @@ The core algorithm is implemented inside `services` package. These services coll
 
 In summary, the algorithm combines sorting, optimization, graph generation, pruning, and the A* search algorithm to systematically explore and find the optimal solution for packing items according to specific customer orders. The resulting implementation is both efficient and scalable, providing a robust solution for the given problem statement.
 
-## Running the Project Locally
+## Running the Golang Backend Application
 
-To run the project locally, follow these steps:
+To run the Golang Backend application locally on your computer, follow these steps:
 
-1. Download the project dependencies using the following command:
-```
-go mod download
-```
+1. **Install Golang**
 
-2. Run the Golang application with the following command:
-```
-go run cmd/packcalculator/main.go
-```
+   * Ensure that Golang is installed on your system. You can download and install Golang from the [official website](https://go.dev/doc/install).
+   * After installation, make sure the `GOPATH` environment variable is set and added to the `PATH` variable.
 
-The backend HTTP server will start on port `8080`.
+
+2. **Download Dependencies**
+   * Navigate to the project root directory:
+   ```
+   cd rpg
+   ```
+   * Execute the following command to download and install the project dependencies specified in `go.mod`:
+   ```
+   go mod download
+   ```
+
+3. **Run the Golang Application**
+
+   Execute the following command to run the Golang application:
+   ```
+   go run cmd/packcalculator/main.go
+   ```
+
+4. **Verification**:
+   * The Golang application uses the `RPG_BACKEND_PORT` environment variable to determine the port on which the server should listen. If the variable is not set, the application defaults to port `8080`.
+   * After successful startup, you should see a log message indicating the server starting on a specific port, for example:
+   ```
+   Server starting on port 8080...
+   ```
+## Running the Vue.js Frontend Application
+
+To run the Vue.js Frontend application locally on your computer, follow these steps:
+
+1. **Install Node.js and npm**
+
+   Ensure that Node.js and npm are installed on your system. You can download and install them from the [official Node.js website](https://nodejs.org/en).
+
+
+2. **Navigate to the UI Directory**
+   ```
+   cd rpg/ui
+   ```
+
+3. **Install Dependencies**
+
+   Execute the following command to install project dependencies:
+   ```
+   npm install
+   ```
+
+4. **Run the Vue.js Application**
+
+   Run the Vue.js application using the command. Specify a port that does not conflict with the Golang Backend application (e.g., `8081`):
+   ```
+   npm run serve -- --port 8081
+   ```
+
+5. **Verification**
+   * After successful startup, you should see a message in the console indicating the URL of the local server, for example, `http://localhost:8081/`.
+   * Open this URL in your web browser, and you will see your Vue.js Frontend application.
 
 ## API Testing
 
-You can use `curl` utility or a tool like `Postman` to test the API with the following scenarios:
+You can use `curl` utility, a tool like `Postman` or `Vue.js Frontend Application` with simple `UI` to test the API with the following scenarios:
 
 ### 1. Single Item Order
 ```
@@ -243,7 +306,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' http://localhost:8080/calculate
 ```
 
-![1. Single Item Order](screenshots/1.%20Single%20Item%20Order.png)
+![Single Item Order](screenshots/1.%20Single%20Item%20Order.png)
+
+![Single Item Order (UI)](screenshots/1.%20Single%20Item%20Order%20(UI).png)
 
 ### 2. Order Matching a Single Pack
 ```
@@ -253,7 +318,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' http://localhost:8080/calculate
 ```
 
-![2. Order Matching a Single Pack](screenshots/2.%20Order%20Matching%20a%20Single%20Pack.png)
+![Order Matching a Single Pack](screenshots/2.%20Order%20Matching%20a%20Single%20Pack.png)
+
+![Order Matching a Single Pack (UI)](screenshots/2.%20Order%20Matching%20a%20Single%20Pack%20(UI).png)
 
 ### 3. Order Just Above Single Pack Size
 ```
@@ -263,7 +330,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' http://localhost:8080/calculate
 ```
 
-![3. Order Just Above Single Pack Size](screenshots/3.%20Order%20Just%20Above%20Single%20Pack%20Size.png)
+![Order Just Above Single Pack Size](screenshots/3.%20Order%20Just%20Above%20Single%20Pack%20Size.png)
+
+![Order Just Above Single Pack Size (UI)](screenshots/3.%20Order%20Just%20Above%20Single%20Pack%20Size%20(UI).png)
 
 ### 4. Order Requiring Multiple Packs
 ```
@@ -273,7 +342,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' http://localhost:8080/calculate
 ```
 
-![4. Order Requiring Multiple Packs](screenshots/4.%20Order%20Requiring%20Multiple%20Packs.png)
+![Order Requiring Multiple Packs](screenshots/4.%20Order%20Requiring%20Multiple%20Packs.png)
+
+![Order Requiring Multiple Packs (UI)](screenshots/4.%20Order%20Requiring%20Multiple%20Packs%20(UI).png)
 
 ### 5. Large Order
 ```
@@ -283,7 +354,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' http://localhost:8080/calculate
 ```
 
-![5. Large Order](screenshots/5.%20Large%20Order.png)
+![Large Order](screenshots/5.%20Large%20Order.png)
+
+![Large Order (UI)](screenshots/5.%20Large%20Order%20(UI).png)
 
 ### 6. Custom Pack Sizes
 ```
@@ -294,6 +367,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 ![Custom Pack Sizes](screenshots/6.%20Custom%20Pack%20Sizes.png)
+
+![Custom Pack Sizes (UI)](screenshots/6.%20Custom%20Pack%20Sizes%20(UI).png)
 
 To test the API, you can use `Postman` and import the provided Postman collection called `RPG Pack Calculator.postman_collection.json` located in the root directory. This collection includes pre-configured requests for the following test cases:
 1. Single Item Order | Order: 1, Pack Sizes: [250, 500, 1000, 2000, 5000]
