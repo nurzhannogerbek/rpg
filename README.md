@@ -386,3 +386,22 @@ Follow these steps to use the Postman collection:
 5. The collection will now be visible in the left sidebar of Postman.
 
 You can then execute each request from the collection to test the API for different scenarios. Adjust the request payload or parameters as needed.
+
+## User Interface Validation
+
+The Vue.js Frontend Application includes a simple yet effective input validation in `App.vue`. The validation is applied to the order quantity and pack sizes fields:
+
+* **Order Quantity Validation**:
+  * Validates that the order quantity is a positive integer.
+  * Displays an error message if the input is invalid.
+* **Pack Sizes Validation**:
+  * Validates that pack sizes are valid numbers separated by commas.
+  * Displays an error message if the input is invalid.
+* **Calculate Button State**:
+  * The "Calculate Packs" button is disabled until both the order quantity and pack sizes are valid.
+  * Prevents the user from triggering calculations with invalid input.
+* **Error Messages**:
+  * Error messages are displayed below the respective input fields when validation fails.
+  * Provides clear feedback to the user about the nature of the validation error.
+
+This validation ensures that users provide correct and reasonable input before triggering the pack calculation, enhancing the overall user experience.
