@@ -35,3 +35,26 @@ vendor/
 *.swl
 *.swk
 *.swc
+
+# Ignore Node.js modules and distribution directory
+node_modules
+/dist
+
+# Local environment files
+.env.local
+.env.*.local
+
+# Log files for various package managers
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

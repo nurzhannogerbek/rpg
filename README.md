@@ -224,12 +224,12 @@ To run the project locally, follow these steps:
 go mod download
 ```
 
-2. Run the project with the following command:
+2. Run the Golang application with the following command:
 ```
 go run cmd/packcalculator/main.go
 ```
 
-The server will start on port `8080`.
+The backend HTTP server will start on port `8080`.
 
 ## API Testing
 
