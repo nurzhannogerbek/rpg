@@ -26,7 +26,7 @@ rpg
 |           `-- graph_test.go
 |-- utils
 |   |-- utils.go
-|   `-- utils_tests.go
+|   `-- utils_test.go
 |-- .gitignore
 |-- go.mod
 |-- go.sum
@@ -52,7 +52,7 @@ rpg
    * `calculator.go` and `calculator_test.go`: Implement the core algorithm for calculating optimal pack combinations based on given constraints.
    * `graph.go` and `graph_test.go`: Implement the graph-related logic used in the pack calculation algorithm.
 
-6. `utils/utils.go` and `utils/utils_tests.go`:
+6. `utils/utils.go` and `utils/utils_test.go`:
    * *Purpose*: Contains utility functions and unit tests for them, in this case, a function to calculate the sum of integers in an array.
 
 7. `go.mod` and `go.sum`:
