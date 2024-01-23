@@ -4,6 +4,7 @@
 *.so
 
 # Compiled Go binaries
+bin
 *.exe
 *.test
 *.prof
@@ -38,7 +39,7 @@ vendor/
 
 # Ignore Node.js modules and distribution directory
 node_modules
-/dist
+dist
 
 # Local environment files
 .env.local

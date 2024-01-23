@@ -229,6 +229,34 @@ The core algorithm is implemented inside `services` package. These services coll
 
 In summary, the algorithm combines sorting, optimization, graph generation, pruning, and the A* search algorithm to systematically explore and find the optimal solution for packing items according to specific customer orders. The resulting implementation is both efficient and scalable, providing a robust solution for the given problem statement.
 
+## Quick Launch Commands
+
+Makefile:
+```
+# Build the Golang backend binary.
+build-backend:
+	cd ./cmd/packcalculator && go build -o ../../bin/packcalculator
+
+# Run the Golang backend application.
+run-backend:
+	cd ./cmd/packcalculator && go run main.go
+
+# Build the Vue.js frontend application.
+build-frontend:
+	cd ./ui && npm install && npm run build
+
+# Run the Vue.js frontend application.
+run-frontend:
+	cd ./ui && npm run serve -- --port 8081
+```
+
+To quickly build and run both the Golang backend and Vue.js frontend locally on your computer, you can use the following commands from the provided Makefile:
+
+* `make build-backend`: Build the Golang backend binary.
+* `make run-backend`: Run the Golang backend application.
+* `make build-frontend`: Build the Vue.js frontend application.
+* `make run-frontend`: Run the Vue.js frontend application.
+
 ## Running the Golang Backend Application
 
 To run the Golang Backend application locally on your computer, follow these steps:
