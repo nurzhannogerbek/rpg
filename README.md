@@ -44,6 +44,7 @@ rpg
 |-- .gitignore
 |-- go.mod
 |-- go.sum
+|-- Makefile
 |-- README.md
 `-- RPG Pack Calculator.postman_collection.json
 ```
