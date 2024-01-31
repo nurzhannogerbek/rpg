@@ -8,6 +8,7 @@ This Go application is designed to calculate the optimal number and sizes of pac
 rpg
 |-- cmd
 |   `-- packcalculator
+|       |-- Dockerfile
 |       `-- main.go
 |-- internal
 |   `-- packcalculator
@@ -36,6 +37,7 @@ rpg
 |   |   |   `-- ResultDisplay.vue
 |   |   |-- App.vue
 |   |   `-- main.js
+|   |-- Dockerfile
 |   |-- babel.config.js
 |   |-- jsconfig.json
 |   |-- package.json
@@ -46,6 +48,7 @@ rpg
 |-- go.sum
 |-- Makefile
 |-- README.md
+|-- docker-compose.yml
 `-- RPG Pack Calculator.postman_collection.json
 ```
 
@@ -257,6 +260,17 @@ To quickly build and run both the Golang backend and Vue.js frontend locally on 
 * `make run-backend`: Run the Golang backend application.
 * `make build-frontend`: Build the Vue.js frontend application.
 * `make run-frontend`: Run the Vue.js frontend application.
+
+Execute the following commands to initiate the project within `Docker` containers:
+```
+docker-compose down
+docker-compose build
+docker-compose up -d
+```
+
+* `docker-compose down`: Stops and removes containers, networks, and volumes defined in the `docker-compose.yml`.
+* `docker-compose build`: Builds or rebuilds services defined in the `docker-compose.yml`.
+* `docker-compose up -d`: Starts the project in detached mode, running containers in the background.ß
 
 ## Running the Golang Backend Application
 
