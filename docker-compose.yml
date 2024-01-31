@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: cmd/packcalculator/Dockerfile
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ui
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - RPG_BACKEND_API_URL=http://3.120.247.52:8080
